@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da Emely</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <div class="layout">
+
+        <!-- menu -->
+        <aside class="sidebar">
+
+            <div class="brand-area">
+                <h1>Emely</h1>
+            </div>
+
+            <nav class="main-menu">
+
+                <button class="nav-btn active" data-section="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </button>
+
+                <button class="nav-btn" data-section="pomodoro">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <span>Pomodoro</span>
+                </button>
+
+                <button class="nav-btn" data-section="tasks">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tarefas</span>
+                </button>
+
+                <button class="nav-btn" data-section="goals">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Metas</span>
+                </button>
+
+                <button class="nav-btn" data-section="notes">
+                    <i class="fa-solid fa-pen"></i>
+                    <span>Anotações</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="darkModeToggle" class="soft-button">
+                    <i class="fa-solid fa-moon"></i>
+                    Modo Noturno
+                </button>
+
+                <div class="music-card">
+                    <p>
+                        <i class="fa-solid fa-headphones"></i>
+                        lo-fi
+                    </p>
+
+                    <iframe
+                        width="100%"
+                        height="90"
+                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                        title="Lo-fi">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- conteúdo -->
+        <main class="main-content">
+
+            <!-- topo -->
+            <header class="topbar">
+
+                <div class="greeting">
+                    <h2>Olá</h2>
+                    <p>um passo de cada vez.</p>
+                </div>
+
+                <div class="topbar-tools">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Buscar..."
+                        >
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- dashboard -->
+            <section id="dashboard" class="page active-page">
+
+                <div class="dashboard-grid">
+
+                    <!-- pomodoro -->
+                    <div class="dream-card destaque-card">
+
+                        <div class="card-glow"></div>
+
+                        <h3>
+                            <i class="fa-regular fa-clock"></i>
+                            Foco
+                        </h3>
+
+                        <p id="timer">25:00</p>
+
+                        <p id="pomodoroStatus">Pronta</p>
+
+                        <div class="button-row">
+
+                            <button onclick="startPomodoro()" class="soft-button">
+                                Iniciar
+                            </button>
+
+                            <button onclick="pausePomodoro()" class="soft-button alt-button">
+                                Pausar
+                            </button>
+
+                            <button onclick="resetPomodoro()" class="soft-button alt-button">
+                                Reiniciar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- tarefas -->
+                    <div class="dream-card tasks-card">
+
+                        <h3>
+                            <i class="fa-solid fa-list-check"></i>
+                            Tarefas
+                        </h3>
+
+                        <div class="task-entry">
+
+                            <input
+                                type="text"
+                                id="taskInput"
+                                placeholder="Nova tarefa..."
+                            >
+
+                            <button onclick="addTask()">
+                                +
+                            </button>
+
+                        </div>
+
+                        <ul id="taskList"></ul>
+
+                    </div>
+
+                    <!-- humor melhorado -->
+                    <div class="dream-card mood-card">
+
+                        <h3>
+                            <i class="fa-solid fa-heart"></i>
+                            Humor
+                        </h3>
+
+                        <div class="mood-buttons">
+
+                            <button onclick="setMood('Motivada', '💖')">
+                                💖 Motivada
+                            </button>
+
+                            <button onclick="setMood('Focada', '🎯')">
+                                🎯 Focada
+                            </button>
+
+                            <button onclick="setMood('Cansada', '🌙')">
+                                🌙 Cansada
+                            </button>
+
+                            <button onclick="setMood('Feliz', '✨')">
+                                ✨ Feliz
+                            </button>
+
+                        </div>
+
+                        <div class="mood-history">
+
+                            <p id="moodDisplay">Hoje: ...</p>
+
+                            <small id="moodDate">
+                                Nenhum registro ainda
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <!-- metas -->
+                    <div class="dream-card goals-card">
+
+                        <h3>
+                            <i class="fa-solid fa-star"></i>
+                            Metas
+                        </h3>
+
+                        <div class="goal-entry">
+
+                            <input
+                                type="text"
+                                id="goalInput"
+                                placeholder="Nova meta..."
+                            >
+
+                            <button onclick="addGoal()">
+                                +
+                            </button>
+
+                        </div>
+
+                        <ul id="goalsList"></ul>
+
+                    </div>
+
+                    <!-- hábitos -->
+                    <div class="dream-card habits-card">
+
+                        <h3>
+                            <i class="fa-solid fa-seedling"></i>
+                            Hábitos
+                        </h3>
+
+                        <label><input type="checkbox"> Água</label>
+                        <label><input type="checkbox"> Estudo</label>
+                        <label><input type="checkbox"> Sono</label>
+
+                    </div>
+
+                    <!-- frase -->
+                    <div class="dream-card quote-card">
+
+                        <h3>
+                            <i class="fa-solid fa-feather"></i>
+                            Lembrete
+                        </h3>
+
+                        <p class="quote-text">
+                            “A constância muda tudo.”
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- pomodoro -->
+            <section id="pomodoro" class="page">
+
+                <div class="single-view-card">
+
+                    <h2>Pomodoro</h2>
+
+                    <p class="pomodoro-explicacao">
+                        25 min foco • 5 min pausa
+                    </p>
+
+                    <p id="fullPomodoroTimer">25:00</p>
+
+                    <p id="pomodoroCycle">Ciclo: 1</p>
+
+                    <div class="button-row">
+
+                        <button onclick="startPomodoro()" class="soft-button">
+                            Iniciar
+                        </button>
+
+                        <button onclick="pausePomodoro()" class="soft-button alt-button">
+                            Pausar
+                        </button>
+
+                        <button onclick="resetPomodoro()" class="soft-button alt-button">
+                            Reiniciar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- tarefas -->
+            <section id="tasks" class="page">
+
+                <div class="single-view-card">
+
+                    <h2>Tarefas</h2>
+
+                    <div class="task-entry">
+
+                        <input
+                            type="text"
+                            id="taskInputPage"
+                            placeholder="Nova tarefa..."
+                        >
+
+                        <button onclick="addTaskFromPage()">
+                            +
+                        </button>
+
+                    </div>
+
+                    <ul id="taskListPage"></ul>
+
+                </div>
+
+            </section>
+
+            <!-- metas -->
+            <section id="goals" class="page">
+
+                <div class="single-view-card">
+
+                    <h2>Metas</h2>
+
+                    <div class="goal-entry">
+
+                        <input
+                            type="text"
+                            id="goalInputPage"
+                            placeholder="Nova meta..."
+                        >
+
+                        <button onclick="addGoalFromPage()">
+                            +
+                        </button>
+
+                    </div>
+
+                    <ul id="goalsListPage"></ul>
+
+                </div>
+
+            </section>
+
+            <!-- anotações -->
+            <section id="notes" class="page">
+
+                <div class="single-view-card">
+
+                    <h2>Anotações</h2>
+
+                    <textarea
+                        id="notesPage"
+                        placeholder="Escreva aqui..."
+                    ></textarea>
+
+                    <div class="button-row" style="margin-top:16px;">
+
+                        <button
+                            onclick="saveNotes()"
+                            class="soft-button"
+                        >
+                            Salvar
+                        </button>
+
+                        <button
+                            onclick="clearNotes()"
+                            class="soft-button alt-button"
+                        >
+                            Limpar
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="notesStatus"
+                        style="margin-top:14px;"
+                    >
+                        Suas anotações serão salvas localmente.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
