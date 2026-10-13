@@ -1,24 +1,25 @@
-# Painel de Estudos Emely 🌷
+# Painel de Estudos Emely
 
-Um painel pessoal para organizar os estudos, acompanhar hábitos e deixar a rotina um pouco mais leve. Criei este projeto para praticar desenvolvimento front-end e construir uma ferramenta que eu gostaria de usar no dia a dia.
+Fiz esse painel para organizar meus estudos e acompanhar algumas coisas da rotina em um só lugar. Aproveitei o projeto para praticar HTML, CSS e JavaScript e testar ideias de interface.
 
-## Funcionalidades
-- Temporizador Pomodoro
+## O que tem por aqui
+- Timer Pomodoro
 - Lista de tarefas, metas e hábitos
-- Anotações e registro diário de humor
-- Modo escuro e busca rápida
-- Salvamento local com `localStorage`
+- Anotações e registro de humor
+- Modo escuro
+- Busca rápida
+- Salvamento das informações no navegador com `localStorage`
 - Layout responsivo
 
 ## Tecnologias
-HTML5 · CSS3 · JavaScript · Font Awesome · Google Fonts
+HTML, CSS, JavaScript, Font Awesome e Google Fonts.
 
-## Como executar
-Clone o repositório e abra `index.html` no navegador. Não é necessário instalar dependências.
+## Como abrir
+Baixe ou clone o repositório e abra o arquivo `index.html` no navegador. Não precisa instalar nada.
 
 ## O que pratiquei
-Manipulação do DOM, armazenamento local, responsividade, lógica JavaScript e organização de interfaces.
+Manipulação do DOM, armazenamento local, responsividade e organização da interface.
 
-![Captura de tela](./Captura%20de%20tela%202026-05-08%20004937.png)
+![Captura de tela do projeto](./Captura%20de%20tela%202026-05-08%20004937.png)
 
-Feito por [Emely Almeida](https://github.com/emelyalmeida) 💗
+Desenvolvido por [Emely Almeida](https://github.com/emelyalmeida).
